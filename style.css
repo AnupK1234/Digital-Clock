@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body, .time, .left-side, .right-side, .right-top, .right-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    min-height: 80vh;
+    background: linear-gradient(132deg, rgb(2, 108, 223) 0.00%, rgb(0, 246, 253) 100.00%);
+}
+
+.digital-clock, .time, .right-side, .right-down, .right-top{
+    position: relative;
+}
+
+.digital-clock{
+    color: white;
+    background-color: rgb(87, 85, 85);
+    width: 440px;
+    padding: 20px 45px;
+    /*box-shadow: 0 5px 25px #444345; */
+    border-radius: 10px;
+}
+
+.digital-clock::before{
+    content: '';
+    position: absolute;
+    background: linear-gradient(45deg, rgb(238, 3, 255), rgb(255, 174, 0), rgb(171, 2, 255));
+    background-size: 200% 200%;
+    top: -8px;
+    left: -8px;
+    bottom: -8px;
+    right: -8px;
+    z-index: -1;
+    filter: blur(30px); 
+    animation: glowing 5s ease infinite;
+}
+
+
+@keyframes glowing {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+#hours{
+    font-weight: 600px;
+    padding: 0 10px;
+    line-height: 125px;
+    font-size: 9em;
+    background: -webkit-linear-gradient(90deg, blue, white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+
+#dots{
+    font-size: 6em;
+    transform: translateY(30px);
+    color: grey;
+}
+
+#minutes{
+    font-size: 6em;
+    font-weight: 500;
+    margin-left: 10px;
+    background: -webkit-linear-gradient(90deg, rgb(245, 227, 26), white);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    transform: translateY(10px);
+}
+
+.right-down{
+    margin-left: 20px;
+    transform: translateY(-10px);
+}
+
+.right-side{
+    flex-direction: column;
+    margin-left: 5px;
+    transform: translateY(-15px);
+}
+
+#period, #seconds{
+    font-size: 1.8em;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#period{
+    color: orange;
+}
+#seconds{
+    color: white;
+}
